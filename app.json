@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "e-shop",
+    "name": "E-shop",
     "slug": "e-shop",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -17,14 +17,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.onedstudio.ecommerce"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "versionCode": 1
+      
+      "package": "com.onedstudio.ecommerce"
     },
     "web": {
       "favicon": "./assets/favicon.png"
