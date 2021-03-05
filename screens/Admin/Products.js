@@ -6,6 +6,7 @@ import {
   FlatList,
   ActivityIndicator,
   Dimensions,
+  ScrollView
 } from "react-native";
 import { Header, Item, Input } from "native-base";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -98,7 +99,7 @@ const Products = (props) => {
       <View style={styles.buttonContainer}>
         <EasyButton
           secondary
-          large
+          medium
           onPress={() => props.navigation.navigate("Orders")}
         >
           <Icon name="shopping-bag" size={19} color="white" />
@@ -106,18 +107,18 @@ const Products = (props) => {
         </EasyButton>
         <EasyButton
           secondary
-          large
+          medium
           onPress={() => props.navigation.navigate("ProductForm")}
         >
-          <Icon name="plus" size={19} color="white" style={{ marginTop: 3 }} />
+          <Icon name="plus" size={19} color="white"  />
           <Text style={styles.buttonText}>Products</Text>
         </EasyButton>
         <EasyButton
           secondary
-          large
+          medium
           onPress={() => props.navigation.navigate("Categories")}
         >
-          <Icon name="plus" size={19} color="white" style={{ marginTop: 3 }} />
+          <Icon name="plus" size={19} color="white"  />
           <Text style={styles.buttonText}>Categories</Text>
         </EasyButton>
       </View>
@@ -134,7 +135,7 @@ const Products = (props) => {
       </View>
       {loading ? (
         <View style={styles.spinner}>
-          <ActivityIndicator size="large" color="red" />
+          <ActivityIndicator size="large" color="blue" />
         </View>
       ) : (
         <FlatList

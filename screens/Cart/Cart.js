@@ -4,6 +4,7 @@ import {
   Dimensions,
   StyleSheet,
   TouchableOpacity,
+  ScrollView
 } from "react-native";
 import {
   Container,
@@ -24,7 +25,6 @@ import AuthGlobal from "../../Context/store/AuthGlobal";
 const { height, width } = Dimensions.get("window");
 
 const Cart = (props) => {
-  console.log(props)
 
   const context = useContext(AuthGlobal);
 
@@ -37,6 +37,7 @@ const Cart = (props) => {
       {props.cartItems.length ? (
         <Container>
           <H1 style={{ alignSelf: "center" }}>Cart</H1>
+            <View style={{marginBottom: 100}}>
             <SwipeListView 
                 data={props.cartItems}
                 renderItem={(data) => <CartItem item={data} />}
@@ -58,6 +59,7 @@ const Cart = (props) => {
                 stopLeftSwipe={75}
                 rightOpenValue={-75}
             />
+            </View>
           <View style={styles.bottomContainer}>
             <Left>
               <Text style={styles.price}>$ {total}</Text>
@@ -131,15 +133,15 @@ const styles = StyleSheet.create({
       elevation: 20,
   },
   price: {
-      fontSize: 18,
+      fontSize: 15,
       margin: 20,
       color: 'red',
-      fontSize: 30
+      fontWeight: 'bold'
   },
   hiddenContainer:{
       flex: 1,
       justifyContent: 'flex-end',
-      flexDirection: 'row'
+      flexDirection: 'row',
   },
   hiddenButton: {
       backgroundColor: 'red',

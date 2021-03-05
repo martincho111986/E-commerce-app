@@ -17,13 +17,13 @@ var { width } = Dimensions.get("window");
 const Item = (props) => {
   return (
     <View style={styles.item}>
-      <Text style={{fontSize: 20, fontWeight: 'bold'}}>{props.item.name}</Text>
+      <Text style={{fontSize: 15, fontWeight: 'bold'}}>{props.item.name}</Text>
       <EasyButton
         medium
         danger
         onPress={() => props.delete(props.item._id)}
       >
-        <Text style={{ color: "white", fontSize: 18 }}>Delete</Text>
+        <Text style={{ color: "white" }}>Delete</Text>
       </EasyButton>
     </View>
   );
@@ -96,7 +96,7 @@ const Categories = (props) => {
       </View>
       <View style={styles.bottomBar}>
         <View>
-          <Text style={{marginLeft: 5, fontSize: 19, fontWeight: 'bold'}}>Add Category</Text>
+          <Text style={{marginLeft: 5, fontWeight: 'bold'}}>Add Category</Text>
         </View>
         <View style={{ width: width / 2.5 }}>
           <TextInput
@@ -107,7 +107,7 @@ const Categories = (props) => {
         </View>
         <View>
           <EasyButton medium primary onPress={() => addCategory()}>
-            <Text style={{ color: "white", fontWeight: "bold", fontSize: 20 }}>submit</Text>
+            <Text style={{ color: "white", fontWeight: "bold" }}>submit</Text>
           </EasyButton>
         </View>
       </View>

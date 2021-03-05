@@ -10,12 +10,15 @@ import baseURL from "../../assets/common/baseUrl";
 
 import AuthGlobal from "../../Context/store/AuthGlobal";
 import { logoutUser } from "../../Context/actions/Auth.actions";
-import { useEffect } from "react/cjs/react.development";
+import EasyButton from "../../Shared/StyledComponents/EasyButton";
 
 const UserProfile = (props) => {
   const context = useContext(AuthGlobal);
   const [userProfile, setUserProfile] = useState();
   const [orders, setOrders] = useState();
+  console.log(userProfile)
+  // console.log(context)
+  
 
   useFocusEffect(
     useCallback(() => {
@@ -32,7 +35,8 @@ const UserProfile = (props) => {
             .get(`${baseURL}users/${context.stateUser.user.userId}`, {
               headers: { Authorization: `Bearer ${res}` },
             })
-            .then((user) => setUserProfile(user.data));
+            .then((user) => setUserProfile(user.data))
+            .catch((error) => console.log(error))
         })
         .catch((error) => console.log(error));
 
@@ -40,7 +44,6 @@ const UserProfile = (props) => {
         .get(`${baseURL}orders`)
         .then((x) => {
           const data = x.data;
-          console.log(data);
           const userOrders = data.filter(
             (order) => order.user._id === context.stateUser.user.userId
           );
@@ -59,7 +62,7 @@ const UserProfile = (props) => {
     <Container style={styles.container}>
       <ScrollView contentContainerStyle={styles.subContainer}>
         <Text style={{ fontSize: 30 }}>
-          {userProfile ? userProfile.name : ""}
+          Bienvenido {userProfile ? userProfile.name : ""}
         </Text>
         <View style={{ marginTop: 20 }}>
           <Text style={{ margin: 10 }}>
@@ -70,13 +73,16 @@ const UserProfile = (props) => {
           </Text>
         </View>
         <View style={{ marginTop: 80 }}>
-          <Button
-            title={"Sign Out"}
+          <EasyButton
+            medium
+            secondary
             onPress={() => [
               AsyncStorage.removeItem("jwt"),
               logoutUser(context.dispatch),
             ]}
-          />
+          >
+            <Text style={styles.textStyle}>Sing Out</Text>
+          </EasyButton>
         </View>
         <View style={styles.order}>
           <Text style={{ fontSize: 20 }}>My Orders</Text>
@@ -111,6 +117,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 60,
   },
+  textStyle:{
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 18
+  }
 });
 
 export default UserProfile;

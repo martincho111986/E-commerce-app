@@ -1,7 +1,7 @@
 # E-Commerce Mobile App
 
-## Introduction
-This repository is the code representation for the "FrontEnd from an Mobile E-Commerce App"
+## Introduccion
+En este repo se encuentra el codigo FrontEnd de la aplicacion ecommerce con react native
 
 ## Run
 
@@ -36,5 +36,6 @@ npm run android or npm run ios (depends on the OS you use to develop )
 * [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
 * [mime](https://github.com/broofa/mime#readme)
 
-
+### Link al BackEnd del proyecto
+* [Back-End](https://github.com/martincho111986/e-shop-be)
 

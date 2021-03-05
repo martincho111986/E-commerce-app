@@ -26,7 +26,7 @@ const Register = (props) => {
       email,
       password,
       phone,
-      isAdmin: false,
+      // isAdmin: false,
     };
     axios
       .post(`${baseURL}users/register`, user)
