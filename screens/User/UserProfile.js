@@ -2,7 +2,7 @@ import React, { useContext, useState, useCallback } from "react";
 import { View, Text, ScrollView, Button, StyleSheet } from "react-native";
 import { Container } from "native-base";
 import { useFocusEffect } from "@react-navigation/native";
-import AsyncStorage from "@react-native-community/async-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import OrderCard from "../../Shared/OrderCard";
 
 import axios from "axios";
