@@ -16,8 +16,6 @@ const UserProfile = (props) => {
   const context = useContext(AuthGlobal);
   const [userProfile, setUserProfile] = useState();
   const [orders, setOrders] = useState();
-  console.log(userProfile)
-  // console.log(context)
   
 
   useFocusEffect(
